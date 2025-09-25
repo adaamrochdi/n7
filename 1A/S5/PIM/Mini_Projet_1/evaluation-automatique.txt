@@ -1,0 +1,329 @@
+% Validation de E6
+% 2023-10-27 14:40:03.776072
+
+
+################################################################################
+# Modification des fichiers fournis
+################################################################################
+
+
+================================================================================
+## Fichiers qui NE devaient PAS être modifiés
+================================================================================
+
+* Fichier alea.adb non modifié... ok
+* Fichier alea.ads non modifié... ok
+
+================================================================================
+## Fichiers qui DEVAIENT être modifiés
+================================================================================
+
+* Fichier jeu_devin_exo1.adb modifié... ok
+* Fichier jeu_devin_exo2.adb modifié... ok
+* Fichier jeu_devin_exo3.adb modifié... ok
+* Fichier questions.txt modifié... ok
+* Fichier rapport.pdf modifié... ok
+
+
+################################################################################
+# Nettoyer
+################################################################################
+
+* Running gnatclean... ok
+
+
+################################################################################
+# Compilations
+################################################################################
+
+* Compilation de jeu_devin_exo1.adb... ok
+* Compilation de jeu_devin_exo2.adb... ok
+
+  | jeu_devin_exo2.adb:2:09: warning: no entities of "Ada.Integer_Text_Io" are referenced
+  | jeu_devin_exo2.adb:2:28: warning: use clause for package "Integer_Text_IO" has no effect
+
+* Compilation de jeu_devin_exo3.adb... ok
+* Running gnatclean... ok
+
+
+################################################################################
+# Exécutions
+################################################################################
+
+* Running gnatclean... ok
+
+================================================================================
+## Exécution de jeu_devin_exo1
+================================================================================
+
+* Compilation de jeu_devin_exo1.adb... ok
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo1-sujet1.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo1 < "900 10000 990 988 422 420 421"... ok
+* Comparaison de jeu_devin_exo1-sujet1.expected et jeu_devin_exo1-sujet1.out... différents
+
+   | J'ai choisi un nombre compris entre 1 et 999.                          |  J'ai choisit un nombre, bonne chance pour le deviner!
+   | Proposition 1 : 900                                                    |  Choisissez un nombre
+   | Trop grand.                                                            |  900
+   | Proposition 2 : 10000                                                  |  Trop grand, reessayer.
+   | Trop grand.                                                            |  Choisissez un nombre
+   | Proposition 3 : 990                                                    |  10000
+   | Trop grand.                                                            |  La valeur renseignee est incorrecte. Ecrivez un nombre entre 1 et 999.
+   | Proposition 4 : 988                                                    |  Choisissez un nombre
+   | Trop grand.                                                            |  990
+   | Proposition 5 : 422                                                    |  Trop grand, reessayer.
+   | Trop grand.                                                            |  Choisissez un nombre
+   | Proposition 6 : 420                                                    |  988
+   | Trop petit.                                                            |  Trop grand, reessayer.
+   | Proposition 7 : 421                                                    |  Choisissez un nombre
+   | Trouve.                                                                |  422
+   | Bravo. Vous avez trouve 421 en 7 essais.                               |  Trop grand, reessayer.
+   |                                                                        >  Choisissez un nombre
+   |                                                                        >  420
+   |                                                                        >  Trop petit, reessayer.
+   |                                                                        >  Choisissez un nombre
+   |                                                                        >  421
+   |                                                                        >  Felicitation, vous avez gagne (en seulement           6  Tentative.s
+
+
+================================================================================
+## Exécution de jeu_devin_exo2
+================================================================================
+
+* Compilation de jeu_devin_exo2.adb... ok
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-sujet1.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o g x t"... ERREUR
+
+  ! raised ADA.IO_EXCEPTIONS.END_ERROR : a-textio.adb:517
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-triche499.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o g p p p p p p p p p"... ok
+* Comparaison de jeu_devin_exo2-triche499.expected et jeu_devin_exo2-triche499.out... différents
+
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o               |  Bienvenue au jeu de devinette, choisissez un nombre et laissez le reste s
+   | Proposition 1 : 500                                                       |  Le nombre  500 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  o
+   | Proposition 2 : 250                                                       |  Saisissez une lettre valide
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  500 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 3 : 375                                                       |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  750 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 4 : 437                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  625 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 5 : 468                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  562 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 6 : 484                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  531 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 7 : 492                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  515 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 8 : 496                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  507 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 9 : 498                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  503 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 10 : 499                                                      |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  501 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Vous trichez. J'arrete cette partie.                                      |  p
+   |                                                                           >  Vous avez effectue beaucoup d'essais
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-sujet2.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "x O o T"... ERREUR
+
+  ! raised ADA.IO_EXCEPTIONS.END_ERROR : a-textio.adb:517
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-triche1000.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o p p p p p p p p p p"... ok
+* Comparaison de jeu_devin_exo2-triche1000.expected et jeu_devin_exo2-triche1000.out... différents
+
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o               |  Bienvenue au jeu de devinette, choisissez un nombre et laissez le reste s
+   | Proposition 1 : 500                                                       |  Le nombre  500 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  o
+   | Proposition 2 : 750                                                       |  Saisissez une lettre valide
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  500 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 3 : 875                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  250 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 4 : 937                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  125 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 5 : 968                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  63 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 6 : 984                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  32 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 7 : 992                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  16 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 8 : 996                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  8 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 9 : 998                                                       |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  4 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 10 : 999                                                      |  p
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? p                                |  Le nombre  2 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Vous trichez. J'arrete cette partie.                                      |  p
+   |                                                                           >  Vous avez effectue beaucoup d'essais
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo2-triche0.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo2 < "o g g g g g g g g g"... ok
+* Comparaison de jeu_devin_exo2-triche0.expected et jeu_devin_exo2-triche0.out... différents
+
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o               |  Bienvenue au jeu de devinette, choisissez un nombre et laissez le reste s
+   | Proposition 1 : 500                                                       |  Le nombre  500 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  o
+   | Proposition 2 : 250                                                       |  Saisissez une lettre valide
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  500 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 3 : 125                                                       |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  750 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 4 : 62                                                        |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  875 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 5 : 31                                                        |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  937 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 6 : 15                                                        |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  968 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 7 : 7                                                         |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  984 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 8 : 3                                                         |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  992 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Proposition 9 : 1                                                         |  g
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? g                                |  Le nombre  996 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   | Vous trichez. J'arrete cette partie.                                      |  g
+   |                                                                           >  Le nombre  998 est-il correct (C), trop petit (P), ou trop grand (G) ?
+   |                                                                           >  g
+   |                                                                           >  Vous avez effectue beaucoup d'essais
+
+
+================================================================================
+## Exécution de jeu_devin_exo3
+================================================================================
+
+* Compilation de jeu_devin_exo3.adb... ok
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo3-exemple1.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo3 < "3 4 0"... ok
+* Comparaison de jeu_devin_exo3-exemple1.expected et jeu_devin_exo3-exemple1.out... différents
+
+   |                                                                           |  Bienvenue sur le fameux jeu du devin
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      |  Le but du jeu est d'essayer de deviner un nombre mystere compris entre 1 
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    |  Selectionnez votre mode de jeu
+   | 0- Quitter le programme                                                   |  Pour que l'ordinateur choisisse le nombre mystere taper 1
+   | Votre choix : 3                                                           |  Pour que l'ordinateur devine votre nombre mystere taper 2
+   |                                                                           |  Pour quitter le jeu taper 0
+   | Choix incorrect.                                                          |  3
+   |                                                                           |  La valeur renseignee est incorrecte. Voulez vous quitter le jeu ?
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      |  Continuer de jouer ? (o/*)
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    |  4
+   | 0- Quitter le programme                                                   |  Merci d'avoir jouer, et a la prochaine
+   | Votre choix : 4                                                           |  Credits :
+   |                                                                           |  cet excellent jeu vous a ete fourni par Adam Rochdi et Clement Demazure
+   | Choix incorrect.                                                          <
+   |                                                                           <
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      <
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    <
+   | 0- Quitter le programme                                                   <
+   | Votre choix : 0                                                           <
+   |                                                                           <
+   |                                                                           <
+   | Au revoir...                                                              <
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo3-exemple3.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo3 < "1 900 100 421 2 o t 1 421 0"... ok
+* Comparaison de jeu_devin_exo3-exemple3.expected et jeu_devin_exo3-exemple3.out... différents
+
+   |                                                                           |  Bienvenue sur le fameux jeu du devin
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      |  Le but du jeu est d'essayer de deviner un nombre mystere compris entre 1 
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    |  Selectionnez votre mode de jeu
+   | 0- Quitter le programme                                                   |  Pour que l'ordinateur choisisse le nombre mystere taper 1
+   | Votre choix : 1                                                           |  Pour que l'ordinateur devine votre nombre mystere taper 2
+   |                                                                           |  Pour quitter le jeu taper 0
+   | J'ai choisi un nombre compris entre 1 et 999.                             |  1
+   | Proposition 1 : 900                                                       |  J'ai choisit un nombre, bonne chance pour le deviner!
+   | Trop grand.                                                               |  Choisissez un nombre
+   | Proposition 2 : 100                                                       |  900
+   | Trop petit.                                                               |  Trop grand, reessayer.
+   | Proposition 3 : 421                                                       |  Choisissez un nombre
+   | Trouve.                                                                   |  100
+   | Bravo. Vous avez trouve 421 en 3 essais.                                  |  Trop petit, reessayer.
+   |                                                                           |  Choisissez un nombre
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      |  421
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    |  Felicitation, vous avez gagne (en seulement           3  Tentative.s
+   | 0- Quitter le programme                                                   |  Continuer de jouer ? (o/*)
+   | Votre choix : 2                                                           |  2
+   |                                                                           |  Merci d'avoir jouer, et a la prochaine
+   | Avez-vous choisi un nombre compris entre 1 et 999 (o/n) ? o               |  Credits :
+   | Proposition 1 : 500                                                       |  cet excellent jeu vous a ete fourni par Adam Rochdi et Clement Demazure
+   | Trop (g)rand, trop (p)etit ou (t)rouve ? t                                <
+   | J'ai trouve 500 en 1 essai.                                               <
+   |                                                                           <
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      <
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    <
+   | 0- Quitter le programme                                                   <
+   | Votre choix : 1                                                           <
+   |                                                                           <
+   | J'ai choisi un nombre compris entre 1 et 999.                             <
+   | Proposition 1 : 421                                                       <
+   | Trouve.                                                                   <
+   | Bravo. Vous avez trouve 421 en 1 essai.                                   <
+   |                                                                           <
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      <
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    <
+   | 0- Quitter le programme                                                   <
+   | Votre choix : 0                                                           <
+   |                                                                           <
+   |                                                                           <
+   | Au revoir...                                                              <
+
+
+--------------------------------------------------------------------------------
+### Test jeu_devin_exo3-exemple2.in
+--------------------------------------------------------------------------------
+
+* ./jeu_devin_exo3 < "3 -1 0"... ok
+* Comparaison de jeu_devin_exo3-exemple2.expected et jeu_devin_exo3-exemple2.out... différents
+
+   |                                                                           |  Bienvenue sur le fameux jeu du devin
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      |  Le but du jeu est d'essayer de deviner un nombre mystere compris entre 1 
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    |  Selectionnez votre mode de jeu
+   | 0- Quitter le programme                                                   |  Pour que l'ordinateur choisisse le nombre mystere taper 1
+   | Votre choix : 3                                                           |  Pour que l'ordinateur devine votre nombre mystere taper 2
+   |                                                                           |  Pour quitter le jeu taper 0
+   | Choix incorrect.                                                          |  3
+   |                                                                           |  La valeur renseignee est incorrecte. Voulez vous quitter le jeu ?
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      |  Continuer de jouer ? (o/*)
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    |  -Merci d'avoir jouer, et a la prochaine
+   | 0- Quitter le programme                                                   |  Credits :
+   | Votre choix : -1                                                          |  cet excellent jeu vous a ete fourni par Adam Rochdi et Clement Demazure
+   |                                                                           <
+   | Choix incorrect.                                                          <
+   |                                                                           <
+   | 1- L'ordinateur choisit un nombre et vous le devinez                      <
+   | 2- Vous choisissez un nombre et l'ordinateur le devine                    <
+   | 0- Quitter le programme                                                   <
+   | Votre choix : 0                                                           <
+   |                                                                           <
+   |                                                                           <
+   | Au revoir...                                                              <
+

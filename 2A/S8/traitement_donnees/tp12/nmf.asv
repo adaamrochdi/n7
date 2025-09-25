@@ -1,0 +1,24 @@
+function [D,A] = nmf(S,D_0,A_0,N)
+
+    epsilon = 1e-8;
+    D=D_0;
+    A=A_0;
+
+    for i = 1:N
+       %Mise à jour de A
+       num_A = D' * S;
+       den_A = D' * D * A + epsilon;
+       A = A .* (num_A ./ den_A);
+
+       %Mise à jour de D
+       num_D = S * A';
+       den_D = D * (A * A') + epsilon;
+       D = D .* (num_D ./ den_D);
+
+       norme_max = max(D, [], 1); 
+       D = D ./ (norme_max + epsilon);
+       A = A .* (norme_max'); 
+
+    end
+
+       

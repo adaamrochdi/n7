@@ -1,0 +1,112 @@
+Auteur 1 (exercice 1 & 3) : Demazure Clément
+Auteur 2 (exercice 2)     : Adam Rochdi
+
+Vous devez répondre de manière courte aux questions suivantes.
+Il n'est pas demandé de modifier le programme que vous avez écrit mais
+simplement d'expliquer les modifications qu'il faudrait y apporter.
+
+Il faut remplacer les « ... » par votre réponse en laissant les lignes
+blanches avant et après.
+
+--------------------------------------------------------------------------------
+C1. Que se passe-t-il si dans Jeu_Devin_Exo2 l'utilisateur répond d'abord trop
+grand puis toujours trop petit ?
+--------------------------------------------------------------------------------
+
+Réponse : au bout de 10 essais on va detecter une triche (2¹⁰=1024 >1000)
+
+
+--------------------------------------------------------------------------------
+C2. Est-on sûr que Jeu_Devin_Exo1 se termine ?  Quel argument peut-on donner ?
+--------------------------------------------------------------------------------
+
+Réponse : Non, si l'opérateur ne fait que donner un même nombre faux le jeu ne 
+se termine pas. Mais à priori si l'utilisateur essaie de gagner il finira par 
+y arriver avec les indices. Au pire il peut toujours abandonner.
+
+
+--------------------------------------------------------------------------------
+C3. Est-on sûr que Jeu_Devin_Exo2 se termine ?  Quel argument peut-on donner ?
+--------------------------------------------------------------------------------
+
+Réponse : Oui car si le nombre d'essaie de l'ordinateur est trop grand, 
+(plus de 10 essais) il detecte une triche et termine la partie
+
+
+--------------------------------------------------------------------------------
+F1. Les noms Jeu_Devin_Exo1, Jeu_Devin_Exo2 et Jeu_Devin_Exo3 ne sont pas très
+parlants.  Par quoi pourrait-on les remplacer ?
+--------------------------------------------------------------------------------
+
+Réponse : 
+Jeu_Devin_Exo1 -> l'opérateur essaie de deviner le nombre de l'ordinateur
+Jeu_Devin_Exo2 -> l'ordinateur essaie de deviner le nombre de l'opérateur
+Jeu_Devin_Exo3 -> Menu principale ou Rassemblement des 2 modes de jeu précedents
+
+
+--------------------------------------------------------------------------------
+E1. Quelles sont les modifications à apporter à votre programme pour chercher
+des nombres compris entre 1 et 9999 ?
+--------------------------------------------------------------------------------
+
+Réponse : changer la constante qui correspond à la borne maximal, les lignes 
+de textes qui disent 999 et le nombre d'essais avant la détection de triche par 
+14 (2¹⁴=16384 >10000)
+
+
+
+--------------------------------------------------------------------------------
+E2. Quelles sont les modifications à apporter pour que que l'utilisateur
+puisse utiliser aussi les caractères <, > et = pour indiquer si le nombre
+proposé est trop petit, trop grand ou le bon ?
+--------------------------------------------------------------------------------
+
+Réponse : rajouter les caractères '<''>'et'=' dans les choix du 'selon' 
+correspondant
+
+
+--------------------------------------------------------------------------------
+E3. On veut limiter le nombre de tentatives à 10.  Si le nombre n'a pas été
+trouvé avant, le joueur a perdu.  Comment prendre en compte cette évolution ?
+--------------------------------------------------------------------------------
+
+Réponse : en rajoutant comme condition de sortie du répeter (nb_tentatives < 10) 
+et un "if (nb_tentatives < 9)" pour afficher un écran de defaite
+
+
+
+--------------------------------------------------------------------------------
+E4. La recherche dichotomique conduit à toujours proposer les mêmes nombres.
+Comment faire pour donner l'impression que le programme joue comme un humain
+tout en restant efficace ?
+--------------------------------------------------------------------------------
+
+Réponse : On peut choisir un point aléatoire entre 450 et 550 au lieu 
+de la première médiane
+
+
+--------------------------------------------------------------------------------
+E5. Actuellement, l'utilisateur doit attendre la fin d'un jeu pour quitter le
+programme.  On veut qu'il puisse le faire dès qu'il saisit 0 quand on lui pose
+une question. Le programme doit alors dire que l'utilisateur a abandonné la
+partie.  Comment faire ?
+--------------------------------------------------------------------------------
+
+Réponse : Rajouter, dans le selon qui analyse les reponse de l'utilisateur, un 
+choix correspondant au 0 menant à une sortie du répéter
+
+
+--------------------------------------------------------------------------------
+E6. Quand le programme détecte que l'utilisateur a triché, comment faire pour
+que le programme explique au joueur quand il a triché ?
+--------------------------------------------------------------------------------
+
+Réponse : 
+Le programme detecte une triche quand il fait plus de 10 essais pour 
+trouver la solution, au quel cas il n'y a aucune solution possible.
+On peut retrouver après coup le moment ou l'utilisateur a triché. Il suffit de 
+retrouver la dernière fois que l'utitlisateur a changé de réponse. 
+(on est passer de P à G ou inversement)
+
+
+--------------------------------------------------------------------------------

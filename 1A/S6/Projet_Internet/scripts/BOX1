@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#Activer les interfaces réseau
+ip link set dev eth0 up
+ip link set dev eth1 up
+
+#Configurer les adresses IP
+ip a a 192.168.139.1/25 dev eth0
+ip a a 31.4.255.1/27 dev eth1
+
+#ajouter une route par défaut
+ip r a default via 31.4.255.3
+
+#Démarrer le service DHCP
+service isc-dhcp-server restart
+
+#Set up Nat
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+#filtrage
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+
+#autorisation le ping
+iptables -t filter -A OUTPUT -p icmp -j ACCEPT
+iptables -t filter -A INPUT -p icmp -j ACCEPT
+iptables -t filter -A FORWARD -p icmp -j ACCEPT
+
+#autoriser DHCP
+iptables -A INPUT -i eth0 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+iptables -A OUTPUT -o eth0 -p udp --dport 67:68 --sport 67:68 -j ACCEPT
+#autoriser dns
+iptables -t filter -A FORWARD -d 31.4.255.194/27 -p udp --dport 53 -j ACCEPT
+iptables -t filter -A FORWARD -s 31.4.255.194/27 -p udp --sport 53 -j ACCEPT
+
+#autoriser http
+iptables -t filter -A FORWARD -d 31.4.255.162/27 -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A FORWARD -s 31.4.255.162/27 -p tcp --sport 80 -j ACCEPT
+
+iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --sport 80 -j ACCEPT

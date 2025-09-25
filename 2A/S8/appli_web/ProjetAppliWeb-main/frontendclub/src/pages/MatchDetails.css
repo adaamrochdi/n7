@@ -1,0 +1,63 @@
+.match-details {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.details-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.match-card, .joueurs-card, .billets-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+.match-title {
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.match-info > div {
+  margin-bottom: 0.5rem;
+}
+
+.joueurs-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.joueur-item {
+  background: #f8f9fa;
+  border: none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.billets-table {
+  width: 100%;
+}
+
+.no-players, .no-tickets {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+}

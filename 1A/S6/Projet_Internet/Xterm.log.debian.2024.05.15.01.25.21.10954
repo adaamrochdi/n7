@@ -1,0 +1,155 @@
+[Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# cat /etc/dhcp/dhcpd.conf
+default-lease-time 600;
+max-lease-time 7200;
+
+authoritative;
+subnet 192.168.139.0 netmask 255.255.255.128 {
+	range 192.168.139.2 192.168.139.10;
+	option subnet-mask 255.255.255.128;
+	option broadcast-address 192.168.139.255;
+	option routers 192.168.139.1;
+	option domain-name-servers 31.4.255.194;
+  }
+
+
+root@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# clear
+[3J[H[2Jroot@BOX1:/# iptable -L
+bash: iptable: command not found
+root@BOX1:/# iptable -L[1@s
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     udp  --  anywhere             anywhere             udp spts:bootps:bootpc dpts:bootps:bootpc
+ACCEPT     tcp  --  anywhere             anywhere             tcp spt:http
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     udp  --  anywhere             31.4.255.192/27      udp dpt:domain
+ACCEPT     udp  --  31.4.255.192/27      anywhere             udp spt:domain
+ACCEPT     tcp  --  anywhere             31.4.255.160/27      tcp dpt:http
+ACCEPT     tcp  --  31.4.255.160/27      anywhere             tcp spt:http
+ACCEPT     all  --  192.168.139.0/25     192.168.139.0/25    
+ACCEPT     all  --  192.168.139.0/25     192.168.139.0/25    
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     udp  --  anywhere             anywhere             udp spts:bootps:bootpc dpts:bootps:bootpc
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http
+root@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# [Kroot@BOX1:/# iptable -L -n -v
+bash: iptable: command not found
+root@BOX1:/# iptable -L -n -v    v -  n
+bash: iptable: command not found
+root@BOX1:/# iptable -L -v -ne[1@z[1P[1@s
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   23  2788 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   86 28208 ACCEPT     udp  --  eth0   *       0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:80
+
+Chain FORWARD (policy DROP 94 packets, 5640 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    6   504 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+  110  6900 ACCEPT     udp  --  *      *       0.0.0.0/0            31.4.255.192/27      udp dpt:53
+  110  7385 ACCEPT     udp  --  *      *       31.4.255.192/27      0.0.0.0/0            udp spt:53
+   30  2451 ACCEPT     tcp  --  *      *       0.0.0.0/0            31.4.255.160/27      tcp dpt:80
+   22  4026 ACCEPT     tcp  --  *      *       31.4.255.160/27      0.0.0.0/0            tcp spt:80
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+
+Chain OUTPUT (policy DROP 21 packets, 1444 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   27  2256 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   55 18040 ACCEPT     udp  --  *      eth0    0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80
+root@BOX1:/# iptables -L -v -n    n -  v
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   23  2788 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   86 28208 ACCEPT     udp  --  eth0   *       0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:80
+
+Chain FORWARD (policy DROP 94 packets, 5640 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    6   504 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+  110  6900 ACCEPT     udp  --  *      *       0.0.0.0/0            31.4.255.192/27      udp dpt:53
+  110  7385 ACCEPT     udp  --  *      *       31.4.255.192/27      0.0.0.0/0            udp spt:53
+   30  2451 ACCEPT     tcp  --  *      *       0.0.0.0/0            31.4.255.160/27      tcp dpt:80
+   22  4026 ACCEPT     tcp  --  *      *       31.4.255.160/27      0.0.0.0/0            tcp spt:80
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+
+Chain OUTPUT (policy DROP 21 packets, 1444 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   27  2256 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   55 18040 ACCEPT     udp  --  *      eth0    0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80
+root@BOX1:/# iptables -L -n -v    v -n
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   23  2788 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   86 28208 ACCEPT     udp  --  eth0   *       0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:80
+
+Chain FORWARD (policy DROP 94 packets, 5640 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    6   504 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+  110  6900 ACCEPT     udp  --  *      *       0.0.0.0/0            31.4.255.192/27      udp dpt:53
+  110  7385 ACCEPT     udp  --  *      *       31.4.255.192/27      0.0.0.0/0            udp spt:53
+   30  2451 ACCEPT     tcp  --  *      *       0.0.0.0/0            31.4.255.160/27      tcp dpt:80
+   22  4026 ACCEPT     tcp  --  *      *       31.4.255.160/27      0.0.0.0/0            tcp spt:80
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+
+Chain OUTPUT (policy DROP 21 packets, 1444 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   27  2256 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   55 18040 ACCEPT     udp  --  *      eth0    0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80
+root@BOX1:/# clear
+[3J[H[2Jroot@BOX1:/# cleariptables -L -v -n
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   23  2788 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   86 28208 ACCEPT     udp  --  eth0   *       0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp spt:80
+
+Chain FORWARD (policy DROP 94 packets, 5640 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+    6   504 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+  110  6900 ACCEPT     udp  --  *      *       0.0.0.0/0            31.4.255.192/27      udp dpt:53
+  110  7385 ACCEPT     udp  --  *      *       31.4.255.192/27      0.0.0.0/0            udp spt:53
+   30  2451 ACCEPT     tcp  --  *      *       0.0.0.0/0            31.4.255.160/27      tcp dpt:80
+   22  4026 ACCEPT     tcp  --  *      *       31.4.255.160/27      0.0.0.0/0            tcp spt:80
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+    0     0 ACCEPT     all  --  *      *       192.168.139.0/25     192.168.139.0/25    
+
+Chain OUTPUT (policy DROP 21 packets, 1444 bytes)
+ pkts bytes target     prot opt in     out     source               destination         
+   27  2256 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
+   55 18040 ACCEPT     udp  --  *      eth0    0.0.0.0/0            0.0.0.0/0            udp spts:67:68 dpts:67:68
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:80
+root@BOX1:/# iptables -L
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     udp  --  anywhere             anywhere             udp spts:bootps:bootpc dpts:bootps:bootpc
+ACCEPT     tcp  --  anywhere             anywhere             tcp spt:http
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     udp  --  anywhere             31.4.255.192/27      udp dpt:domain
+ACCEPT     udp  --  31.4.255.192/27      anywhere             udp spt:domain
+ACCEPT     tcp  --  anywhere             31.4.255.160/27      tcp dpt:http
+ACCEPT     tcp  --  31.4.255.160/27      anywhere             tcp spt:http
+ACCEPT     all  --  192.168.139.0/25     192.168.139.0/25    
+ACCEPT     all  --  192.168.139.0/25     192.168.139.0/25    
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     icmp --  anywhere             anywhere            
+ACCEPT     udp  --  anywhere             anywhere             udp spts:bootps:bootpc dpts:bootps:bootpc
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http
+root@BOX1:/# 

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/hbx6621/Documents/pim/projet/default.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project />
+      <vfs_file>/home/hbx6621/Documents/pim/projet/default.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 4" >
+      <vfs_project />
+      <vfs_file>/home/hbx6621/Documents/pim/projet/default.gpr</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/hbx6621/Documents/pim/projet/default.gpr</vfs_project>
+      <vfs_file>/home/hbx6621/Documents/pim/projet/src/main.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/hbx6621/Documents/pim/projet/default.gpr</vfs_project>
+      <vfs_file>/home/hbx6621/Documents/pim/projet/src/module.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

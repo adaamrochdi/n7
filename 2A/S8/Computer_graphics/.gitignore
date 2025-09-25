@@ -1,0 +1,5 @@
+# Ignore les dossiers build
+build/
+*.so
+*.o
+*.cache

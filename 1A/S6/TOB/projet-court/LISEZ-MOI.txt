@@ -1,0 +1,59 @@
+Nom       : ROCHDI
+Prénom    : Adam
+Groupe TP : E
+
+Les « ... » indiquent les endroits à compléter.
+
+=====[ Temps passé ]============================================================
+
+Ces informations de temps sont demandées à titre indicatif et ne sont pas
+prises en compte dans la notation du projet.
+
+
+* Temps passé sur la V1 : 7 heures 0 minutes
+* Temps passé sur la V2 : ... heures ... minutes
+
+Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
+
+
+=====[ Questions ]==============================================================
+
+--------------------------------------------------------------------------------
+Pourquoi l'exception OperationInterditeException ne peut pas être définie
+comme vérifiée par le compilateur ?
+--------------------------------------------------------------------------------
+
+L'exception OperationInterditeException ne peut pas être définie comme vérifiée 
+par le compilateur car elle n'est pas liée à une erreur ou un comportement imprévu 
+mais elle lié au déroulement du jeu : appel incorrect de la méthode retirer(). 
+
+--------------------------------------------------------------------------------
+Expliquer ce qu'il faut faire pour ajouter un nouveau niveau de jeu, par
+exemple la stratégie lente (C13).  Pour plus de précision, on numérotera
+les étapes à faire.
+--------------------------------------------------------------------------------
+
+1) on implemente une nouvelle classe "StrategieLente" de l'interface strategie 
+2)on ajoute un autre cas dans la classe jouer lorsque le joueur suit la nouvelle stratégie en ajoutant un autre case("lente") 
+par exemple dans la structure de controle switch.
+
+
+--------------------------------------------------------------------------------
+Expliquer ce qui permet, dans votre conception, de changer dynamiquement
+(en cours d'exécution du programme) la stratégie d'un joueur (C14).
+--------------------------------------------------------------------------------
+
+j'ai mis la stratégie comme un attribut pour faciliter le changement dynamique de la stratégie du joueur
+en ajoutant une méthode setstrategie qui permette de changer la stratégie du joueur 
+
+
+=====[ Explications ]===========================================================
+
+--------------------------------------------------------------------------------
+Donner ici les explications supplémentaires utiles à la compréhension du
+travail rendu.
+--------------------------------------------------------------------------------
+
+...
+
+--------------------------------------------------------------------------------

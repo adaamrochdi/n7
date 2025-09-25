@@ -1,0 +1,83 @@
+network:
+  name: Projet1
+  version: 0.1
+  hosts:
+    - BOX1
+      mode : docker
+      image : dhcp_n7:latest
+      files : ./files/BOX1/etc:/
+ 
+    - BOX2
+      mode : docker
+      image : dhcp_n7:latest
+      files : ./files/BOX2/etc:/
+ 
+    - Equipement_Utilisateur1
+      mode : netns
+      init : ./scripts/Equipement_Utilisateur1
+ 
+    - Equipement_Utilisateur2
+      mode : netns
+      init : ./scripts/Equipement_Utilisateur2
+ 
+ 
+ 
+    - ServeurUtilisateur
+      mode : docker
+      image : apache_n7:latest
+      files : ./files/ServeurUtilisateur/var:/
+ 
+    - RouteurFaiAcces
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/RouteurFaiAcces/etc:/
+ 
+ 
+    - R1
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/R1/etc:/
+ 
+    - R2
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/R2/etc:/
+ 
+    - RouteurServices
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/RouteurServices/etc:/
+ 
+    - RouteurServicesReseaux
+      mode : docker
+      image : quagga_n7:latest
+      files : ./files/RouteurServicesReseaux/etc:/
+ 
+    - ServeurWeb
+      mode : docker
+      image : apache_n7:latest
+      files : ./files/ServeurWeb/var:/
+ 
+    - ServeurDNS
+      mode : docker
+      image : dns_n7:latest
+      files : ./files/ServeurDNS/etc:/
+ 
+  links :
+    - Equipement_Utilisateur1:eth0!BOX1:eth0
+    - RouteurServices:eth0!R1:eth1
+    - ServeurWeb:eth0!RouteurServices:eth1
+    - RouteurServices:eth2!RouteurServicesReseaux:eth0
+    - RouteurServicesReseaux:eth1!ServeurDNS:eth0
+    - RouteurServicesReseaux:eth2!R2:eth1
+ 
+  bridges:
+    - Switch0
+      interfaces: Equipement_Utilisateur2:eth0!ServeurUtilisateur:eth0!BOX2:eth1!
+    - Switch1
+      interfaces: BOX1:eth1!BOX2:eth0!RouteurFaiAcces:eth0!
+    - Switch2
+      interfaces: R2:eth0!RouteurFaiAcces:eth1!R1:eth0!
+ 
+  consoles :
+    - all

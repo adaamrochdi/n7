@@ -1,0 +1,131 @@
+/* src/pages/GererLesMatchs.css */
+
+/* Conteneur principal */
+.gerer-matchs-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fdfdfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* === Disposition en 3 colonnes === */
+.gerer-matchs-container.gerer-matchs-grid {
+  display: grid;
+  /* ajoutes ici ta nouvelle ligne : */
+  grid-template-columns: 180px 360px 1fr;
+  gap: 1rem;
+}
+
+.gerer-matchs-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titres */
+.gerer-matchs-col h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.gerer-matchs-card h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Card formulaire */
+.gerer-matchs-card {
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Champs du formulaire */
+.gerer-matchs-card .form-control {
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.gerer-matchs-card .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Boutons généraux */
+.gerer-matchs-col .btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.gerer-matchs-col .btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Boutons de validation */
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+
+/* Table des matchs */
+.gerer-matchs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+.gerer-matchs-table th {
+  background: #007bff;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.75rem;
+  border: none;
+}
+.gerer-matchs-table td {
+  background: #fff;
+  padding: 0.75rem;
+  border: none;
+  vertical-align: middle;
+}
+.gerer-matchs-table tr td:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.gerer-matchs-table tr td:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+/* Message « aucun match » */
+.gerer-matchs-table .text-center {
+  color: #666;
+  font-style: italic;
+}
+
+/* Toastify personnalisé */
+.Toastify__toast--success { background: #28a745; }
+.Toastify__toast--error   { background: #dc3545; }
+.Toastify__toast--warning { background: #ffc107; color: #212529; }
+.Toastify__toast--info    { background: #17a2b8; }

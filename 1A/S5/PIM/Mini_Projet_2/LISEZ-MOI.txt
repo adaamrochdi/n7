@@ -1,0 +1,97 @@
+% Compte-rendu minimal du mini-projet SDA : LCA et TH
+% Auteur : ROCHDI Adam
+% Groupe de TP : E
+
+**Consigne :** Vous devez écrire vos réponse à la place des ... en laissant
+une ligne vide avant et deux après votre réponse.
+
+**Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
+une version PDF en faisant par exemple :
+
+~~~
+pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
+~~~
+
+
+# Exercice 1
+
+## Question 1.4
+
+Avantages : les SDA sont dynamique - les Sda peuvent allouer dynamiquement la mémoire, ce qui facilite l'utilisation de la mémoire et la rend plus flexible
+
+Inconvénients : chaque élément dans une sda nécessite un surcoût en termes d'espace pour enregistrer les pointeurs vers les donnees,et surtout ça peut introduire des erreure fatales si on ne fait pas attention à la gestion mémoire (fuite mémoire).
+
+
+# Évaluation expérimentale.
+
+## Performance comparée de LCA et TH
+
+Indiquer ici les résultats obtenus.
+
+La commande : time ./evaluer_alea_th 1000 1000000
+Résultats :
+Borne  : 1000
+Taille : 1000000
+Min : 897
+Max : 1083
+
+real	1m17,439s
+user	1m17,092s
+sys	0m0,036s
+
+
+Commande : time ./evaluer_alea_lca 1000 10000
+Résultats : 
+Borne  : 1000
+Taille : 10000
+Min : 2
+Max : 20
+
+real	2m32,823s
+user	2m32,765s
+sys	0m0,004s
+
+ 
+
+
+## Qualité du générateur aléatoire
+
+Indiquer les conclusions quant à la qualité du générateur aléatoire.
+
+Le générateur est efficace car il n'y a pas un grand écart entre le min et le max
+
+
+# Principales difficultés rencontrées
+
+Indiquer ici les principales difficultés rencontrées lors de la réalisation de
+ce projet et comment elles ont été surmontées ou contournéeS.
+
+J'ai eu vraiment du mal à trouver la solution de l'erreur : ! raised TEST_LCA.TESTER_POUR_CHAQUE_SOMME_LEN4_AVEC_EXCEPTION.SOMMER_LEN4_AVEC_EXCEPTION.NOUVELLE_EXCEPTION : test_lca.adb:370 
+Le problème était dans la procédure pour chaque, cette dernière doit continuer à traiter même si on a une exeption ( je l'ai mentionné comme commentaire dans la procédure pour chaque dans lca.adb)
+
+
+# Informations complémentaires
+
+Indiquer ici les informations qui pourraient aider à la compréhension du
+travail réalisé.
+
+Cette partie peut être vide.
+
+...
+
+
+
+# Bilan personnel
+
+Quel bilan personnel tirez-vous de ce mini-projet ?
+
+-J'ai appris mieux à travailler avec les pointeurs.
+-J'ai bien compris l'importance et le rôle des pointeurs auxiliaires.
+-J'ai mieux maîtriser les modules, généricité ...
+-Ce mini-projet va nous aider à programmer le projet PageRank 
+ 
+MERCI :)
+
+
+
+
