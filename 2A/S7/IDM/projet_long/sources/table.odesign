@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="tableur" version="12.0.0.2017041100">
+  <ownedViewpoints name="tableurViewpoint" modelFileExtension="xmi">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="TableDiagram" domainClass="table::Table" enablePopupBars="true">
+      <metamodel href="http://table"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="TableNode" domainClass="table::Table">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="100" height="60">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="TableSourceNode" domainClass="table::TableSource">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="TableResultanteNode" domainClass="table::TableResultante">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" horizontalDiameterComputationExpression="10" verticalDiameterComputationExpression="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ScriptNode" domainClass="table::Script">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="0.5" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="30" height="20">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ColonneIDNode" domainClass="table::ColonneId">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="0.5" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ColonneSaisieNode" domainClass="table::ColonneSaisie">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="0.5" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ColonneDerivNode" domainClass="table::ColonneDeriv">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="0.5" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ColonneIdResultanteNode" domainClass="table::colonneIdResultante">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="0.5" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="ColonneSaisieResNode" domainClass="table::ColonneSaisieRes">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="0.5" labelSize="12" labelExpression="feature:nom" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='cyan']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="TableToTableSource" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableSourceNode']" targetFinderExpression="feature:tablesource">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TableToTableResultante" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableResultanteNode']" targetFinderExpression="feature:tableresultante">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TableToScript" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature:script">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TableSourceToColonneId" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableSourceNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneIDNode']" targetFinderExpression="feature:colonneid">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TableSourceToColonneSaisie" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableSourceNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneSaisieNode']" targetFinderExpression="feature:colonnesaisie">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TableResToColIdRes" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableResultanteNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneIdResultanteNode']" targetFinderExpression="feature:colonneidresultante">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="TableResToColSaisieRes" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableResultanteNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneSaisieResNode']" targetFinderExpression="feature:colonnesaisieres">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+
+
+        <edgeMappings name="TableResToColDeriv" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableResultanteNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneDerivNode']" targetFinderExpression="feature:colonnederiv">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="EntreeToScript" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneSaisieNode'] //@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneDerivNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ScriptNode']" targetFinderExpression="feature::script">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Elements">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateTable" nodeMappings="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='TableNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="table::Table" referenceName="eContents"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddTableSource">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="table::TableSource" referenceName="tablesource"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddTableResultante">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="table::TableResultante" referenceName="tableresultante"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddScript">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="table::Script" referenceName="script"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddColonneIdToSource">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="table::ColonneId" referenceName="colonneid"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddColonneSaisieToSource">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[element/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="table::ColonneSaisie" referenceName="colonnesaisie"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddColonneIdResultante">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="table::colonneIdResultante" referenceName="colonneidresultante"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddColonneSaisieRes">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="table::ColonneSaisieRes" referenceName="colonnesaisieres"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddColonneDeriv">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="table::ColonneDeriv" referenceName="colonnederiv"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="Contraintes" activeByDefault="true">
+        <nodeMappings name="ContrainteOperationNode" domainClass="table::ContrainteOperation">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" labelExpression="feature:type" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="ColonneToContrainteOperation" sourceMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneIDNode'] //@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneSaisieNode'] //@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneDerivNode'] //@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneIdResultanteNode'] //@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@defaultLayer/@nodeMappings[name='ColonneSaisieResNode']" targetMapping="//@ownedViewpoints[name='tableurViewpoint']/@ownedRepresentations[name='TableDiagram']/@additionalLayers[name='Contraintes']/@nodeMappings[name='ContrainteOperationNode']" targetFinderExpression="feature:contrainte">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Contraintes">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddContrainteOperation">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="table::ContrainteOperation" referenceName="contrainte"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="my.tableur.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

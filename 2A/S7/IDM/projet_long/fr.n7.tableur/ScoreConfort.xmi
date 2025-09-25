@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calcul:Calcul xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:calcul="http://calcul"
+    name="ScoreConfortCalc">
+
+  <!-- LeftPart: (Temperature * 0.3) -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="LeftPart" type="PRODUIT" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.0"/>
+    <entreePrincipale xsi:type="calcul:PortEntree" ordre="1" name="Temperature" type="FLOAT"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="0.3"/>
+  </operateur>
+
+  <!-- RightPartIntermediate: (50 - Humidite) -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="RightPartIntermediate" type="SOUSTRACTION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.1"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="1" type="FLOAT" valeur="50.0"/>
+    <entreePrincipale xsi:type="calcul:PortEntree" ordre="2" name="Humidite" type="FLOAT"/>
+  </operateur>
+
+  <!-- RightPart: (RightPartIntermediate * 0.1) -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="RightPart" type="PRODUIT" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.2"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="1" type="FLOAT"
+        operateur="//@operateur.2"
+        precedent="//@operateur.1/@sortie"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="0.1"/>
+  </operateur>
+
+  <!-- Final: SOMME(LeftPart, RightPart) -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="Final" type="SOMME" operandetype="FLOAT">
+    <sortie xsi:type="calcul:PortSortie" name="ResultConfort"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="1" type="FLOAT"
+        operateur="//@operateur.3"
+        precedent="//@operateur.0/@sortie"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="2" type="FLOAT"
+        operateur="//@operateur.3"
+        precedent="//@operateur.2/@sortie"/>
+  </operateur>
+
+</calcul:Calcul>

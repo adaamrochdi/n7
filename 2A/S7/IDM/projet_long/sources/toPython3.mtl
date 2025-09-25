@@ -1,0 +1,92 @@
+[comment encoding = UTF-8 /]
+[module toPython('http://calcul')]
+
+[template public calculToPython(e : Calcul)]
+[comment @main /]
+[file (e.name + '.py', false, 'UTF-8')]
+[if (e.oclIsKindOf(Calcul))]
+import operations as mod
+
+def calcul_[e.name/]([manageEntreeCalcul(getEntreeCalcul(e))/]) :
+[for (anoperateur : Operateur | operateur)]
+[if (anoperateur.sortie.oclIsKindOf(PortSortie))]
+[if (anoperateur.oclIsKindOf(OperateurBinaire))]
+[let anoperateur : OperateurBinaire = anoperateur.oclAsType(OperateurBinaire)]
+	return mod.operer_binaire_[anoperateur.type.toString()/]([manageEntrees(anoperateur)/])
+[/let]
+[/if]
+[if (anoperateur.oclIsKindOf(OperateurUnaire))]
+[let anoperateur : OperateurUnaire = anoperateur.oclAsType(OperateurUnaire)]
+	return mod.operer_unaire_[anoperateur.type.toString()/](entrees)
+[/let]
+[/if]
+[/if]
+[/for]
+
+
+[/if]
+[/file]
+[/template]
+
+[query public manageEntrees(op : Operateur) : String =
+	 Sequence{1..op.entreePrincipale->size()} -> iterate(i; result : String = '' |
+		result +
+		(if getEntreeOrdre(i,op).oclIsKindOf(EntreeConstanteBool) then
+            getEntreeOrdre(i,op).oclAsType(EntreeConstanteBool).valeur.toString()
+		else
+			''
+        endif)
+		+ (if getEntreeOrdre(i,op).oclIsKindOf(EntreeConstanteInt) then
+            getEntreeOrdre(i,op).oclAsType(EntreeConstanteInt).valeur.toString()
+		else
+			''
+        endif)
+		+ (if getEntreeOrdre(i,op).oclIsKindOf(EntreeConstanteString) then
+            getEntreeOrdre(i,op).oclAsType(EntreeConstanteString).valeur.toString()
+		else
+			''
+        endif)
+		+ (if getEntreeOrdre(i,op).oclIsKindOf(EntreeConstanteFloat) then
+            getEntreeOrdre(i,op).oclAsType(EntreeConstanteFloat).valeur.toString()
+		else
+			''
+        endif)
+		+ (if getEntreeOrdre(i,op).oclIsKindOf(PortEntree) then
+            getEntreeOrdre(i,op).oclAsType(PortEntree).name.toString()
+		else
+			''
+        endif)
+		+ (if getEntreeOrdre(i,op).oclIsKindOf(EntreeOperateur) then
+            if getEntreeOrdre(i,op).oclAsType(EntreeOperateur)
+			.precedent.operateur.oclIsKindOf(OperateurBinaire) then
+				'mod.operer_binaire_' + getEntreeOrdre(i,op).oclAsType(EntreeOperateur)
+			.precedent.operateur.oclAsType(OperateurBinaire).type.toString()
+				+ '('+ manageEntrees(getEntreeOrdre(i,op).oclAsType(EntreeOperateur)
+			.precedent.operateur)+')'
+			else
+				'mod.operer_unaire_' + getEntreeOrdre(i,op).oclAsType(EntreeOperateur)
+			.precedent.operateur.oclAsType(OperateurUnaire).type.toString()
+				+ '('+ manageEntrees(getEntreeOrdre(i,op).oclAsType(EntreeOperateur)
+			.precedent.operateur)+')'
+			endif
+		else
+			''
+        endif)
+		+ (if not(i=op.entreePrincipale->size()) then ', ' else '' endif)
+	)
+ /]
+
+[query public getEntreeOrdre(i: Integer, op : Operateur) : Entree =
+	op.entreePrincipale -> any(ordre = i)
+ /]
+
+[query public getEntreeCalcul(c : Calcul) : Sequence(PortEntree) =
+	c.operateur.entreePrincipale -> select(oclIsKindOf(PortEntree))
+ /]
+
+[query public manageEntreeCalcul(s : Sequence(PortEntree)) : String =
+	s -> iterate(i; result : String = '' |
+	result + i.name
+	+ (if not(i=s->last()) then ', ' else '' endif)
+)
+ /]

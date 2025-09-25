@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated algorithme -->
+      <package
+            uri="http://algorithme"
+            class="algorithme.AlgorithmePackage"
+            genModel="algorithme.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated table -->
+      <package
+            uri="http://table"
+            class="table.TablePackage"
+            genModel="table.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated algo -->
+      <package
+            uri="http://algo"
+            class="algo.AlgoPackage"
+            genModel="algo.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated calcul -->
+      <package
+            uri="http://calcul"
+            class="calcul.CalculPackage"
+            genModel="calcul.genmodel"/>
+   </extension>
+
+</plugin>

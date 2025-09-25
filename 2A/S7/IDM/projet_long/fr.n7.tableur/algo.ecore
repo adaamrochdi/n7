@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="algo" nsURI="http://algo" nsPrefix="algo">
+  <eClassifiers xsi:type="ecore:EClass" name="Algorithme">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+        eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="portentree" lowerBound="1"
+        upperBound="-1" eType="#//PortEntree" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Script">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortEntree">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cole" lowerBound="1" upperBound="-1"
+        eType="ecore:EClass table.ecore#//Colonne"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortSortie">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cols" upperBound="-1" eType="ecore:EClass table.ecore#//ColonneDeriv"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="algorithme" lowerBound="1"
+        upperBound="-1" eType="#//Algorithme" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

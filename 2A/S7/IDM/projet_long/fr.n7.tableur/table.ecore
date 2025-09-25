@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="table" nsURI="http://table" nsPrefix="table">
+  <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tablesource" lowerBound="1"
+        upperBound="-1" eType="#//TableSource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tableresultante" lowerBound="1"
+        upperBound="-1" eType="#//TableResultante" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" upperBound="-1"
+        eType="#//Script" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Colonne" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeurs" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contrainte" upperBound="-1"
+        eType="#//Contrainte" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneId" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneSaisie" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneDeriv" eSuperTypes="#//Colonne">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="script" lowerBound="1"
+        eType="#//Script" eOpposite="#//Script/sortie"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contrainte" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContrainteOperation" eSuperTypes="#//Contrainte">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//OpContrainte"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vComparee" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OpContrainte">
+    <eLiterals name="SUP"/>
+    <eLiterals name="INF" value="1"/>
+    <eLiterals name="EGAL" value="2"/>
+    <eLiterals name="SUP_OU_EGAL" value="3"/>
+    <eLiterals name="INF_OU_EGAL" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableSource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnesaisie" upperBound="-1"
+        eType="#//ColonneSaisie" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonneid" lowerBound="1"
+        eType="#//ColonneId" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableResultante">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonneidresultante" lowerBound="1"
+        eType="#//colonneIdResultante" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnesaisieres" upperBound="-1"
+        eType="#//ColonneSaisieRes" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colonnederiv" upperBound="-1"
+        eType="#//ColonneDeriv" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="colonneIdResultante" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ColonneSaisieRes" eSuperTypes="#//Colonne"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Script">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
+        eType="#//ColonneDeriv" eOpposite="#//ColonneDeriv/script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entree" lowerBound="1"
+        upperBound="-1" eType="#//Colonne"/>
+  </eClassifiers>
+</ecore:EPackage>

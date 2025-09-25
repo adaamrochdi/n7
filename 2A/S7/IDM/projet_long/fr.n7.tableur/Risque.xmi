@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calcul:Calcul xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:calcul="http://calcul"
+    name="RisqueCalc">
+
+  <!-- A = Temperature - 22 -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="A" type="SOUSTRACTION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.0"/>
+    <entreePrincipale xsi:type="calcul:PortEntree" ordre="1" name="Temperature" type="FLOAT"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="22.0"/>
+  </operateur>
+
+  <!-- Adiv = A/10 -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="Adiv" type="DIVISION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.1"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="1" type="FLOAT"
+        operateur="//@operateur.1"
+        precedent="//@operateur.0/@sortie"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="10.0"/>
+  </operateur>
+
+  <!-- B = Humidite - 45 -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="B" type="SOUSTRACTION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.2"/>
+    <entreePrincipale xsi:type="calcul:PortEntree" ordre="1" name="Humidite" type="FLOAT"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="45.0"/>
+  </operateur>
+
+  <!-- Bdiv = B/50 -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="Bdiv" type="DIVISION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.3"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="1" type="FLOAT"
+        operateur="//@operateur.3"
+        precedent="//@operateur.2/@sortie"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="50.0"/>
+  </operateur>
+
+  <!-- Risque = SOMME(Adiv,Bdiv) -->
+  <operateur xsi:type="calcul:OperateurBinaire" name="RisqueFinal" type="SOMME" operandetype="FLOAT">
+    <sortie xsi:type="calcul:PortSortie" name="RisqueResult"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="1" type="FLOAT"
+        operateur="//@operateur.4"
+        precedent="//@operateur.1/@sortie"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="2" type="FLOAT"
+        operateur="//@operateur.4"
+        precedent="//@operateur.3/@sortie"/>
+  </operateur>
+
+</calcul:Calcul>

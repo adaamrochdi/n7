@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calcul:Calcul xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:calcul="http://calcul"
+    name="IndiceQualiteCalc">
+
+  <operateur xsi:type="calcul:OperateurBinaire" name="Subtract20" type="SOUSTRACTION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.0"/>
+    <entreePrincipale xsi:type="calcul:PortEntree" ordre="1" name="Temperature" type="FLOAT"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="20.0"/>
+  </operateur>
+
+  <operateur xsi:type="calcul:OperateurBinaire" name="DivideHum" type="DIVISION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.1"/>
+    <entreePrincipale xsi:type="calcul:PortEntree" ordre="1" name="Humidite" type="FLOAT"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="2" type="FLOAT" valeur="100.0"/>
+  </operateur>
+
+  <operateur xsi:type="calcul:OperateurBinaire" name="OneMinusHum" type="SOUSTRACTION" operandetype="FLOAT">
+    <sortie xsi:type="calcul:SortieOperateur" operateur="//@operateur.2"/>
+    <entreePrincipale xsi:type="calcul:EntreeConstanteFloat" ordre="1" type="FLOAT" valeur="1.0"/>
+    <!-- L'entrée 2 provient de DivideHum (SortieOperateur) -->
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="2" type="FLOAT"
+        operateur="//@operateur.2"
+        precedent="//@operateur.1/@sortie"/>
+  </operateur>
+
+  <operateur xsi:type="calcul:OperateurBinaire" name="FinalProduct" type="PRODUIT" operandetype="FLOAT">
+    <sortie xsi:type="calcul:PortSortie" name="ResultFinal"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="1" type="FLOAT"
+        operateur="//@operateur.3"
+        precedent="//@operateur.0/@sortie"/>
+    <entreePrincipale xsi:type="calcul:EntreeOperateur" ordre="2" type="FLOAT"
+        operateur="//@operateur.3"
+        precedent="//@operateur.2/@sortie"/>
+  </operateur>
+
+</calcul:Calcul>

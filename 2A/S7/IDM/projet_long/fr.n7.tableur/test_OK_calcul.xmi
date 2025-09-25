@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calcul:Calcul
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:calcul="http://calcul"
+    name="Moyenne">
+  <operateur
+      xsi:type="calcul:OperateurBinaire"
+      name="Division"
+      type="DIVISION">
+    <sortie
+        xsi:type="calcul:PortSortie"
+        name="c"/>
+    <entreePrincipale
+        xsi:type="calcul:EntreeConstanteInt"
+        ordre="2"
+        valeur="2"/>
+    <entreePrincipale
+        xsi:type="calcul:EntreeOperateur"
+        ordre="1"
+        precedent="//@operateur.1/@sortie"
+        operateur="//@operateur.0"/>
+  </operateur>
+  <operateur
+      xsi:type="calcul:OperateurBinaire"
+      name="Somme">
+    <sortie
+        xsi:type="calcul:SortieOperateur"
+        suivant="//@operateur.0/@entreePrincipale.1"
+        operateur="//@operateur.1"/>
+    <entreePrincipale
+        xsi:type="calcul:PortEntree"
+        ordre="1"
+        name="b"/>
+    <entreePrincipale
+        xsi:type="calcul:PortEntree"
+        ordre="2"
+        name="a"/>
+  </operateur>
+</calcul:Calcul>

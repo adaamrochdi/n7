@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="calcul" nsURI="http://calcul" nsPrefix="calcul">
+  <eClassifiers xsi:type="ecore:EClass" name="Calcul">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operateur" lowerBound="1"
+        upperBound="-1" eType="#//Operateur" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operateur" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sortie" lowerBound="1"
+        eType="#//Sortie" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entreePrincipale" lowerBound="1"
+        upperBound="-1" eType="#//Entree" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Entree" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ordre" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sortie" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SortieOperateur" eSuperTypes="#//Sortie">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="suivant" lowerBound="1"
+        eType="#//EntreeOperateur" eOpposite="#//EntreeOperateur/precedent"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operateur" lowerBound="1"
+        eType="#//Operateur"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortSortie" eSuperTypes="#//Sortie">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PortEntree" eSuperTypes="#//Entree">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntreeConstante" abstract="true" eSuperTypes="#//Entree"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntreeOperateur" eSuperTypes="#//Entree">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precedent" lowerBound="1"
+        eType="#//SortieOperateur" eOpposite="#//SortieOperateur/suivant"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operateur" lowerBound="1"
+        eType="#//Operateur"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperateurBinaire" eSuperTypes="#//Operateur">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//OperationBType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operandetype" lowerBound="1"
+        eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperateurUnaire" eSuperTypes="#//Operateur">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//OperationUType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operandetype" lowerBound="1"
+        eType="#//TypeElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationBType">
+    <eLiterals name="SOMME"/>
+    <eLiterals name="SOUSTRACTION" value="1"/>
+    <eLiterals name="PRODUIT" value="2"/>
+    <eLiterals name="MAXIMUM" value="3"/>
+    <eLiterals name="MINIMUM" value="4"/>
+    <eLiterals name="DIVISION" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="OperationUType">
+    <eLiterals name="OPPOSE"/>
+    <eLiterals name="INVERSE" value="1"/>
+    <eLiterals name="SINUS" value="2"/>
+    <eLiterals name="COSINUS" value="3"/>
+    <eLiterals name="SQRT" value="4"/>
+    <eLiterals name="EXP" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TypeElement">
+    <eLiterals name="INT"/>
+    <eLiterals name="STRING" value="1"/>
+    <eLiterals name="FLOAT" value="2"/>
+    <eLiterals name="BOOL" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntreeConstanteInt" eSuperTypes="#//EntreeConstante">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntreeConstanteString" eSuperTypes="#//EntreeConstante">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntreeConstanteBool" eSuperTypes="#//EntreeConstante">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntreeConstanteFloat" eSuperTypes="#//EntreeConstante">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+</ecore:EPackage>

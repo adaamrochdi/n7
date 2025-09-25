@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.n7.tableur/src" modelPluginID="fr.n7.tableur"
+    modelName="Table" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>table.ecore</foreignModel>
+  <genPackages prefix="Table" disposableProviderFactory="true" ecorePackage="table.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="table.ecore#//OpContrainte">
+      <genEnumLiterals ecoreEnumLiteral="table.ecore#//OpContrainte/SUP"/>
+      <genEnumLiterals ecoreEnumLiteral="table.ecore#//OpContrainte/INF"/>
+      <genEnumLiterals ecoreEnumLiteral="table.ecore#//OpContrainte/EGAL"/>
+      <genEnumLiterals ecoreEnumLiteral="table.ecore#//OpContrainte/SUP_OU_EGAL"/>
+      <genEnumLiterals ecoreEnumLiteral="table.ecore#//OpContrainte/INF_OU_EGAL"/>
+    </genEnums>
+    <genClasses ecoreClass="table.ecore#//Table">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//Table/nom"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//Table/tablesource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//Table/tableresultante"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//Table/script"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="table.ecore#//Colonne">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//Colonne/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//Colonne/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//Colonne/valeurs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//Colonne/contrainte"/>
+    </genClasses>
+    <genClasses ecoreClass="table.ecore#//ColonneId"/>
+    <genClasses ecoreClass="table.ecore#//ColonneSaisie"/>
+    <genClasses ecoreClass="table.ecore#//ColonneDeriv">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference table.ecore#//ColonneDeriv/script"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="table.ecore#//Contrainte"/>
+    <genClasses ecoreClass="table.ecore#//ContrainteOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//ContrainteOperation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//ContrainteOperation/vComparee"/>
+    </genClasses>
+    <genClasses ecoreClass="table.ecore#//TableSource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//TableSource/colonnesaisie"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//TableSource/colonneid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//TableSource/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="table.ecore#//TableResultante">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//TableResultante/colonneidresultante"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//TableResultante/colonnesaisieres"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference table.ecore#//TableResultante/colonnederiv"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//TableResultante/nom"/>
+    </genClasses>
+    <genClasses ecoreClass="table.ecore#//colonneIdResultante"/>
+    <genClasses ecoreClass="table.ecore#//ColonneSaisieRes"/>
+    <genClasses ecoreClass="table.ecore#//Script">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute table.ecore#//Script/nom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference table.ecore#//Script/sortie"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference table.ecore#//Script/entree"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

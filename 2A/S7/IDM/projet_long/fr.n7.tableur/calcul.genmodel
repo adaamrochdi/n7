@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.n7.tableur/src" modelPluginID="fr.n7.tableur"
+    modelName="Calcul" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>calcul.ecore</foreignModel>
+  <genPackages prefix="Calcul" disposableProviderFactory="true" ecorePackage="calcul.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="calcul.ecore#//OperationBType">
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationBType/SOMME"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationBType/SOUSTRACTION"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationBType/PRODUIT"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationBType/MAXIMUM"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationBType/MINIMUM"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationBType/DIVISION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="calcul.ecore#//OperationUType">
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationUType/OPPOSE"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationUType/INVERSE"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationUType/SINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationUType/COSINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationUType/SQRT"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//OperationUType/EXP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="calcul.ecore#//TypeElement">
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//TypeElement/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//TypeElement/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//TypeElement/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="calcul.ecore#//TypeElement/BOOL"/>
+    </genEnums>
+    <genClasses ecoreClass="calcul.ecore#//Calcul">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference calcul.ecore#//Calcul/operateur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//Calcul/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="calcul.ecore#//Operateur">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference calcul.ecore#//Operateur/sortie"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference calcul.ecore#//Operateur/entreePrincipale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//Operateur/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="calcul.ecore#//Entree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//Entree/ordre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//Entree/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="calcul.ecore#//Sortie"/>
+    <genClasses ecoreClass="calcul.ecore#//SortieOperateur">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference calcul.ecore#//SortieOperateur/suivant"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference calcul.ecore#//SortieOperateur/operateur"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//PortSortie">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//PortSortie/name"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//PortEntree">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//PortEntree/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="calcul.ecore#//EntreeConstante"/>
+    <genClasses ecoreClass="calcul.ecore#//EntreeOperateur">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference calcul.ecore#//EntreeOperateur/precedent"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference calcul.ecore#//EntreeOperateur/operateur"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//OperateurBinaire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//OperateurBinaire/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//OperateurBinaire/operandetype"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//OperateurUnaire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//OperateurUnaire/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//OperateurUnaire/operandetype"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//EntreeConstanteInt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//EntreeConstanteInt/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//EntreeConstanteString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//EntreeConstanteString/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//EntreeConstanteBool">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//EntreeConstanteBool/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="calcul.ecore#//EntreeConstanteFloat">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calcul.ecore#//EntreeConstanteFloat/valeur"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
