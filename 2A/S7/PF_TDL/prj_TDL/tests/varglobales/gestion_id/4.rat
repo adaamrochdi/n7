@@ -1,0 +1,10 @@
+static int x = 10;
+
+int getX() {
+  return x;
+}
+
+test {
+  int y = getX();
+  print y;
+}

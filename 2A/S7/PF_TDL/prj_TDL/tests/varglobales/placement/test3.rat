@@ -1,0 +1,11 @@
+static int counter = 0;
+static bool flag = true;
+
+main {
+  int x = counter;
+  bool y = flag;
+  int z = x;
+  print x;
+  int x2 = z;  // Nouvelle variable avec même valeur
+  print x2;
+}

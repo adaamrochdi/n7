@@ -1,0 +1,6 @@
+static int x = 10;
+static int x = 20;
+
+main {
+  print(x);
+}

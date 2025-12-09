@@ -1,0 +1,49 @@
+# dune runtest tests/varglobales/tam/
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /root/.cache/dune/db
+# Workspace root: /mnt/c/Users/adamr/Desktop/tdl/sourceEtu
+# Auto-detected concurrency: 16
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /root/.opam/4.12.1/bin/ocamlc.opt -config > /tmp/dune_8b737f_output
+$ (cd _build/default/tests/varglobales/tam && .tamvg.inline-tests/inline_test_runner_tamvg.exe inline-test-runner tamvg -source-tree-root ../../.. -diff-cmd -)
+$ /usr/bin/git --no-pager diff --no-index --color=always -u _build/default/tests/varglobales/tam/test.ml _build/default/tests/varglobales/tam/test.ml.corrected
+> diff --git a/_build/default/tests/varglobales/tam/test.ml b/_build/default/tests/varglobales/tam/test.ml.corrected
+> index 11b7d1f..ef0bd6c 100755
+> --- a/_build/default/tests/varglobales/tam/test.ml
+> +++ b/_build/default/tests/varglobales/tam/test.ml.corrected
+> @@ -34,4 +34,22 @@ let pathFichiersRat = "../../../../../tests/varglobales/tam/"
+>  (* requires ppx_expect in jbuild, and `opam install ppx_expect` *)
+>  let%expect_test "test1" =
+>    runtam (pathFichiersRat^"test1.rat");
+> -  [%expect{| 5[3/2][2/1] |}]
+> \ No newline at end of file
+> +  [%expect.unreachable]
+> +[@@expect.uncaught_exn {|
+> +  (* CR expect_test_collector: This test expectation appears to contain a backtrace.
+> +     This is strongly discouraged as backtraces are fragile.
+> +     Please change this test to not include a backtrace. *)
+> +
+> +  (Rat.Parser.MenhirBasics.Error)
+> +  Raised at Rat__Parser.MenhirBasics._eRR in file "parser.ml" (inlined), line 8, characters 6-17
+> +  Called from Rat__Parser._menhir_run_075 in file "parser.ml", line 1626, characters 10-17
+> +  Called from Rat__Compilateur.compiler in file "compilateur.ml", line 94, characters 14-45
+> +  Re-raised at Rat__Compilateur.compiler in file "compilateur.ml", line 102, characters 6-13
+> +  Called from Tamvg__Test.runtamcode in file "tests/varglobales/tam/test.ml", line 10, characters 16-32
+> +  Called from Tamvg__Test.runtam in file "tests/varglobales/tam/test.ml" (inlined), line 22, characters 15-46
+> +  Called from Tamvg__Test.(fun) in file "tests/varglobales/tam/test.ml", line 36, characters 2-38
+> +  Called from Expect_test_collector.Make.Instance_io.exec in file "collector/expect_test_collector.ml", line 262, characters 12-19
+> +
+> +  Trailing output
+> +  ---------------
+> +  File "../../../../../tests/varglobales/tam/test1.rat", line 2, characters 3-9: syntax error. |}]
+> \ No newline at end of file
+[1]

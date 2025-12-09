@@ -1,0 +1,5 @@
+static int x = true; // Erreur : Incompatibilité de type
+
+main {
+  print x;
+}

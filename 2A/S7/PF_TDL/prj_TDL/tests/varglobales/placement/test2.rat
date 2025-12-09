@@ -1,0 +1,12 @@
+static int x = 3;
+static bool y = true;
+static rat z = [4/2];
+
+main {
+  rat r = [x/2];
+  bool b = y;
+  int i = (num z);
+  print r;
+  print b;
+  print i;
+}

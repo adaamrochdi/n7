@@ -1,0 +1,5 @@
+static bool x = 10; // Erreur : Incompatibilité de type
+
+main {
+  print x;
+}
