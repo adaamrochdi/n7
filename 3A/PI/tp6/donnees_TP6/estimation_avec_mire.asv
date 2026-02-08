@@ -1,0 +1,13 @@
+function [theta,rho,psi] = estimation_avec_mire(images,normales) 
+   
+    lights1 = normales \ images;
+
+    lights = normalize(lights1);
+    
+    theta1 = lights(1, :);
+    rho1 = lights(2, :);
+    psi1 = lights(3, :);
+    
+    [theta,rho,psi] = cart2pol(theta1,rho1,psi1);
+    
+end

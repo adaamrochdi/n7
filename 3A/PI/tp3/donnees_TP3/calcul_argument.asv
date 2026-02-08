@@ -1,0 +1,25 @@
+function [reprojections,erreurs] = calcul_argument(I_ref,R_ref,t_ref,I_tem,M_tem,R_tem,t_tem,u_ref,v_ref,K,valeurs_z)
+    
+    %Etape 1 : Déprojection du pixel de référence dans le repère de la caméra référence
+    p_ref = [u_ref; v_ref; 1];
+    ratio = K \ p_ref; 
+    z_vals = valeurs_z(:)';
+    P_camRef = ratio * z_vals;
+    
+    %Etape 2 : Projeter dans chaque image témoin
+    P_monde = R_ref' * (P_camRef - t_ref); %Rréf RMonde   
+    P_camTem=zeros(3,501,4);
+    for k = 1 : 4
+        P_camTem(:,:,k) = R_tem(:,:,k) * P_monde + t_tem(:,k) ;
+        P_camTem +
+        pk = K * P_camTem ;                   %3x501
+        uk = pk(1,:) ./ pk(3,:);
+        vk = pk(2,:) ./ pk(3,:);
+       
+
+
+    end
+    
+
+
+end

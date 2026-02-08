@@ -1,0 +1,41 @@
+
+% TP Codages JPEG et MPEG-2 - 3SN-M - 2022
+                                                                                      
+%--------------------------------------------------------------------------
+% Fonction de calcul d'entropie binaire
+%--------------------------------------------------------------------------
+% [poids, H] = CodageEntropique(V_coeff)
+%
+% sorties : poids = poids du vecteur de donnees encode (en ko)
+%           H = entropie de la matrice (en bits/pixel)
+% 
+% entree  : V_coeff = vecteur contenant les symboles dont on souhaite 
+%                     calculer l'entropie (ex : l'image vectorisee)
+%--------------------------------------------------------------------------
+
+function [poids, H] = CodageEntropique(V_coeff)
+    
+    keys = num2cell(0:255);     % les clés (de 0 à 255)
+    values = num2cell(zeros(1,256));      % valeurs vides (cellules)
+    dict = containers.Map(keys, values);
+    
+    for v = 1:length(V_coeff) 
+        k = V_coeff(v);      
+        dict(k) = dict(k) + 1;
+    end
+    
+    N = length(V_coeff);
+    H = 0;
+    for i = 1:length(keys)
+        k = keys{i};             
+        c = dict(k);             
+        if c > 0
+            p = c / N;
+            H = H - p * log2(p);
+        end
+    end
+
+    poids1 = H * length(V_coeff) / 8 ; %conversion en octets
+    poids = poids1 / 1024; %conversion en ko 
+
+end

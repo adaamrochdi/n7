@@ -1,0 +1,5 @@
+add_subdirectory(tp)
+add_subdirectory(ogl)
+if(BUILD_TUTORIALS)
+    add_subdirectory(tutorials)
+endif ()
